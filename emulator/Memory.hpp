@@ -4,13 +4,17 @@
 #include "config.hpp"
 
 class Memory {
+    private:
     reg_t memory_size;
     byte_t * memory;
 
+    public:
     Memory(reg_t size);
 
+    reg_t getSize();
+
     byte_t readByte(address_t address) const;
-    half_t readHalfWord(address_t address) const;
+    half_t readHalfWord(address_t address) const{return 0;};
     word_t readWord(address_t address) const;
 
     void writeByte(address_t address, byte_t value);

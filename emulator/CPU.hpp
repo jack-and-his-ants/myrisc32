@@ -18,17 +18,20 @@ struct Instruction{
 class CPU
 {
 private:
-    Memory RAM;
+    Memory memory;
     reg_t registers[16];
     Flags flags;
     reg_t constantValue;
     Instruction currentInstruction;
     
     ALU arithmeticLogicUnit;
+public:
     CPU(reg_t memory_size);
 
     
-    void fetchInstruction();
+    void fetchAndDecodeInstruction();
+    void decodeInstruction(instruction_core_t raw);
+    void decodeInstruction();
     void executePush(Reg reg, OpSize size = OpSize::WORD);
     void executePop(Reg dest);
     void executeLoad(Reg dest,Reg sourceAddress);
