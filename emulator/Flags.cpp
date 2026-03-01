@@ -1,4 +1,3 @@
-#pragma once
 #include "Flags.hpp"
 #include <iostream>
 

@@ -21,23 +21,22 @@ private:
     Memory memory;
     reg_t registers[16];
     Flags flags;
-    reg_t constantValue;
     Instruction currentInstruction;
     
     ALU arithmeticLogicUnit;
 public:
     CPU(reg_t memory_size);
 
-    
+    friend std::ostream& operator<<(std::ostream& os, const CPU& cpu);
     void fetchAndDecodeInstruction();
     void decodeInstruction(instruction_core_t raw);
-    void decodeInstruction();
-    void executePush(Reg reg, OpSize size = OpSize::WORD);
-    void executePop(Reg dest);
-    void executeLoad(Reg dest,Reg sourceAddress);
-    void executeLoad(Reg dest,address_t sourceAddress);
-    void executeStore(Reg destAddress,Reg source);
-    void executeStore(Reg destAddress,reg_t);
+    void executePush();
+    void executePop();
+    void executeLoad();
+    void executeStore();
+    void executeMove();
+    word_t getSource();
+    void writeToDest(reg_t value);
 
     ~CPU();
 };

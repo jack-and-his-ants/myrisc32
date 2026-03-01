@@ -5,7 +5,7 @@
 
 class Memory {
     private:
-    reg_t memory_size;
+    reg_t memorySize;
     byte_t * memory;
 
     public:
@@ -14,7 +14,7 @@ class Memory {
     reg_t getSize();
 
     byte_t readByte(address_t address) const;
-    half_t readHalfWord(address_t address) const{return 0;};
+    half_t readHalfWord(address_t address) const;
     word_t readWord(address_t address) const;
 
     void writeByte(address_t address, byte_t value);
